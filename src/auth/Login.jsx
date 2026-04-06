@@ -11,8 +11,11 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const API_URL = import.meta.env.VITE_URL;
+
     try {
-      const res = await axios.post("http://localhost:3000/api/auth/login", {
+      const res = await axios.post(`${API_URL}/auth/login`, {
         email,
         password,
       });
@@ -20,15 +23,16 @@ function Login() {
       setEmail("");
       setPassword("");
 
-      navigate("/dashborad");
+      navigate("/dashboard");
+
       toast.success("Login Successfully", {
         autoClose: 1500,
       });
     } catch (error) {
-      toast.error(error);
+      const message = error.response?.data?.message || "Login failed";
+      toast.error(message);
     }
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
