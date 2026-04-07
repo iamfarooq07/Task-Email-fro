@@ -12,7 +12,7 @@ function Signup() {
     e.preventDefault();
 
     try {
-      await axios.post(`${import.meta.env.VITE_URL}/auth/register`, {
+      await axios.post(`${import.meta.env.VITE_URL}/api/auth/register`, {
         name,
         email,
         password,
