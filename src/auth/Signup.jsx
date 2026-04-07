@@ -12,11 +12,15 @@ function Signup() {
     e.preventDefault();
 
     try {
-      await axios.post(`${import.meta.env.VITE_URL}/api/auth/register`, {
-        name,
-        email,
-        password,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_URL}/api/auth/register`,
+        {
+          name,
+          email,
+          password,
+        },
+      );
+      console.log(res);
 
       setName("");
       setEmail("");

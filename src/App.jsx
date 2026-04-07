@@ -1,7 +1,7 @@
 import Signup from "./auth/Signup.jsx";
 import Login from "./auth/Login.jsx";
 import { Route, Routes } from "react-router-dom";
-import Dashborad from "./components/Dashborad.jsx";
+import Dashborad from "./components/Dashboard.jsx";
 
 function App() {
   return (

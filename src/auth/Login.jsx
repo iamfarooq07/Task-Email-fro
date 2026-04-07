@@ -19,6 +19,7 @@ function Login() {
         email,
         password,
       });
+      console.log(res);
 
       setEmail("");
       setPassword("");
