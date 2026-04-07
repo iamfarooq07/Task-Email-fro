@@ -24,7 +24,7 @@ function Login() {
       setEmail("");
       setPassword("");
 
-      navigate("/dashboard");
+      navigate("/dashborad");
 
       toast.success("Login Successfully", {
         autoClose: 1500,

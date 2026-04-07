@@ -10,17 +10,15 @@ function Signup() {
 
   const handleData = async (e) => {
     e.preventDefault();
+    const API_URL = import.meta.env.VITE_URL;
 
     try {
-      const res = await axios.post(
-        `${import.meta.env.VITE_URL}/api/auth/register`,
-        {
-          name,
-          email,
-          password,
-        },
-      );
-      console.log(res);
+      await axios.post(`${API_URL}/api/auth/register`, {
+        name,
+        email,
+        password,
+      });
+      // console.log(res);
 
       setName("");
       setEmail("");
