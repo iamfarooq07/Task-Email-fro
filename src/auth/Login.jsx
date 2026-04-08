@@ -15,10 +15,14 @@ function Login() {
     const API_URL = import.meta.env.VITE_URL;
 
     try {
-      const res = await axios.post(`${API_URL}/api/auth/login`, {
-        email,
-        password,
-      }, { withCredentials: true });
+      const res = await axios.post(
+        API_URL,
+        {
+          email,
+          password,
+        },
+        { withCredentials: true },
+      );
       console.log(res);
 
       setEmail("");

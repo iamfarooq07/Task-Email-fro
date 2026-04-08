@@ -13,11 +13,15 @@ function Signup() {
     const API_URL = import.meta.env.VITE_URL;
 
     try {
-      await axios.post(`${API_URL}/api/auth/register`, {
-        name,
-        email,
-        password,
-      }, { withCredentials: true });
+      await axios.post(
+        API_URL,
+        {
+          name,
+          email,
+          password,
+        },
+        { withCredentials: true },
+      );
       // console.log(res);
 
       setName("");
