@@ -17,7 +17,7 @@ function Signup() {
         name,
         email,
         password,
-      });
+      }, { withCredentials: true });
       // console.log(res);
 
       setName("");

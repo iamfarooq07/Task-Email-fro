@@ -18,7 +18,7 @@ function Login() {
       const res = await axios.post(`${API_URL}/api/auth/login`, {
         email,
         password,
-      });
+      }, { withCredentials: true });
       console.log(res);
 
       setEmail("");
