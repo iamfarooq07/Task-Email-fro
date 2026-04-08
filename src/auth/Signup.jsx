@@ -14,7 +14,7 @@ function Signup() {
 
     try {
       await axios.post(
-        API_URL,
+        `${API_URL}/register`,
         {
           name,
           email,
