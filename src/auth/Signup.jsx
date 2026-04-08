@@ -10,30 +10,44 @@ function Signup() {
 
   const handleData = async (e) => {
     e.preventDefault();
+
+    console.log("Form submitted");
+
     const API_URL = import.meta.env.VITE_URL;
+    console.log("API_URL:", API_URL);
+    console.log("Final URL:", `${API_URL}/register`);
 
     try {
-      await axios.post(
+      const res = await axios.post(
         `${API_URL}/register`,
         {
           name,
           email,
           password,
         },
-        { withCredentials: true },
+        {
+          withCredentials: true,
+        },
       );
-      // console.log(res);
 
-      setName("");
-      setEmail("");
-      setPassword("");
+      console.log("Signup Success:", res.data);
 
       toast.success("Account created successfully!", {
         autoClose: 2000,
       });
+
+      setName("");
+      setEmail("");
+      setPassword("");
     } catch (error) {
+      console.log("Signup Error:", error);
+      console.log("Error Response:", error.response);
+
       const message = error.response?.data?.message || "Something went wrong";
-      toast.error(message);
+
+      toast.error(message, {
+        autoClose: 2000,
+      });
     }
   };
 
